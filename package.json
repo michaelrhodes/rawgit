@@ -7,7 +7,9 @@
     "url": "https://github.com/michaelrhodes/rawgit/issues"
   },
   "devDependencies": {
-    "browserify": "^9.0.3"
+    "browserify": "^9.0.3",
+    "run-parallel": "^1.0.0",
+    "xtend": "^4.0.0"
   },
   "homepage": "https://github.com/michaelrhodes/rawgit",
   "keywords": [
@@ -23,6 +25,9 @@
     "url": "git@github.com:michaelrhodes/rawgit"
   },
   "scripts": {
-    "build": "browserify index.js > crx/bundle.js"
+    "prepare": "./bin/set-versions",
+    "bundle-crx": "browserify index.js > crx/bundle.js",
+    "bundle": "npm run bundle-crx",
+    "build": "npm run prepare && npm run bundle"
   }
 }

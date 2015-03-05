@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+var fs = require('fs')
+var path = require('path')
+var extend = require('xtend')
+var parallel = require('run-parallel')
+
+var root = path.resolve(__dirname, '../')
+var pkgpath = path.join(root, 'package.json')
+var extpaths = [path.join(root, 'crx/manifest.json')]
+var pretty = function (obj) {
+  return JSON.stringify(obj, null, 2)
+}
+
+try {
+  var pkg = require(pkgpath)
+  var exts = extpaths.map(require)
+} catch (err) {
+  console.error(err)
+  process.exit(1)
+}
+
+parallel(exts.map(function (ext, i) {
+  return function (cb) {
+    var file = extpaths[i]
+    var json = pretty(extend(ext, {
+      name: pkg.name,
+      description: pkg.description,
+      version: pkg.version
+    }))
+
+    fs.writeFile(file, json, cb)
+  }
+}), function (err) {
+  if (err) {
+    console.error(err)
+    process.exit(1)
+  }
+})
