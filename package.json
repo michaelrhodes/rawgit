@@ -1,0 +1,28 @@
+{
+  "name": "RawGit",
+  "description": "Use RawGit to view raw files on Github.",
+  "version": "1.0.0",
+  "author": "Michael Rhodes",
+  "bugs": {
+    "url": "https://github.com/michaelrhodes/rawgit/issues"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3"
+  },
+  "homepage": "https://github.com/michaelrhodes/rawgit",
+  "keywords": [
+    "chrome",
+    "extension",
+    "rawgit"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:michaelrhodes/rawgit"
+  },
+  "scripts": {
+    "build": "browserify index.js > crx/bundle.js"
+  }
+}
