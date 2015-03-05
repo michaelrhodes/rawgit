@@ -1,7 +1,7 @@
 # RawGit: Unofficial Browser Extension
 [![Sushi icon designed by Linda Yuki Nakanishi](https://raw.githubusercontent.com/michaelrhodes/rawgit/master/crx/icon.png)](http://thenounproject.com/noun/sushi/#icon-No14497)
 
-This is a ~~browser~~ Chrome extension that forces Github’s Raw buttons to link to the appropriate [RawGit](https://rawgit.com/) URLs. It’s helpful for quickly grabbing embeddable content, or simply viewing rendered HTML or SVG files.
+This is a ~~browser~~ Chrome extension that forces Github’s Raw buttons to link to the appropriate [RawGit](https://rawgit.com/) URLs. It’s helpful for quickly grabbing embeddable content, or simply viewing rendered HTML and SVG files.
 
 ## Build
 ```sh
